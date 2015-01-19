@@ -1103,12 +1103,12 @@
                                 "selections": [
                                     {
                                         "start": {
-                                            "line": 4,
-                                            "ch": 12
+                                            "line": 3,
+                                            "ch": 1
                                         },
                                         "end": {
-                                            "line": 4,
-                                            "ch": 12
+                                            "line": 10,
+                                            "ch": 2
                                         },
                                         "reversed": false,
                                         "primary": true
@@ -1116,7 +1116,7 @@
                                 ],
                                 "scrollPos": {
                                     "x": 0,
-                                    "y": 0
+                                    "y": 52.8
                                 }
                             }
                         }
