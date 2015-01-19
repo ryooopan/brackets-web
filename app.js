@@ -1,15 +1,13 @@
 
-/**
- * Module dependencies.
- */
-
-var express = require('express'),
-    http = require('http'),
-    path = require('path'),
+var express  = require('express'),
+    http     = require('http'),
+    path     = require('path'),
     brackets = require('brackets'),
-    socketio = require('socket.io'),
-    app = express(),
-    server = http.createServer(app);
+    socketio = require('socket.io');
+
+var app      = express(),
+    server   = http.createServer(app),
+    io       = socketio.listen(server);
 
 app.get('/', function(req, res) {
   res.send('Hello world');
@@ -17,11 +15,9 @@ app.get('/', function(req, res) {
 
 var bracketsOpts = {
   projectsDir: path.join(__dirname, '..'),
-  supportDir:  path.join(__dirname, '..', '/support')
+  supportDir:  path.join(__dirname, './support')
 };
 brackets(server, bracketsOpts);
-
-var io = socketio.listen(server);
 
 server.listen(3000, function() {
   console.log('You can access Brackets on http://localhost:3000/brackets/');
