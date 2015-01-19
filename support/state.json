@@ -1085,5 +1085,49 @@
             ]
         }
     ],
-    "lastNotifiedBuildNumber": 15558
+    "lastNotifiedBuildNumber": 15558,
+    "extensionUpdateInfo": [],
+    "lastExtensionRegistryCheckTime": 1421647394587,
+    "project": {
+        "/samples/root/Getting Started/": {
+            "mainView.state": {
+                "orientation": null,
+                "activePaneId": "first-pane",
+                "splitPercentage": 1,
+                "panes": {
+                    "first-pane": [
+                        {
+                            "file": "/samples/root/Getting Started/index.html",
+                            "active": true,
+                            "viewState": {
+                                "selections": [
+                                    {
+                                        "start": {
+                                            "line": 4,
+                                            "ch": 12
+                                        },
+                                        "end": {
+                                            "line": 4,
+                                            "ch": 12
+                                        },
+                                        "reversed": false,
+                                        "primary": true
+                                    }
+                                ],
+                                "scrollPos": {
+                                    "x": 0,
+                                    "y": 0
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "project.treeState": [
+                [
+                    "/samples/root/Getting Started/screenshots/"
+                ]
+            ]
+        }
+    }
 }
