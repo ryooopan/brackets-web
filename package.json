@@ -8,6 +8,7 @@
   "dependencies": {
     "brackets": "^0.5.7",
     "express": "3.4.0",
-    "jade": "*"
+    "jade": "*",
+    "socket.io": "^1.2.1"
   }
 }

@@ -7,6 +7,7 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     brackets = require('brackets'),
+    socketio = require('socket.io'),
     app = express(),
     server = http.createServer(app);
 
@@ -20,5 +21,22 @@ var bracketsOpts = {
 };
 brackets(server, bracketsOpts);
 
-server.listen(3000);
-console.log('Brackets is avarialable on http://localhost:3000/brackets/');
+var io = socketio.listen(server);
+
+server.listen(3000, function() {
+  console.log('You can access Brackets on http://localhost:3000/brackets/');
+});
+
+io.sockets.on('connection', function(socket) {
+  var address = socket.handshake.address;
+  console.log('connected from ' + address.address + ':' + address.port);
+
+  socket.on('msg', function(data) {
+    console.log(data);
+    io.sockets.emit('msg', data);
+  });
+
+  socket.on('disconnect', function () {
+    console.log("disconnectted from " + address.address + ":" + address.port)
+  });
+});
