@@ -19,6 +19,11 @@ io.on('connection', function(socket) {
   var address = socket.handshake.address;
   console.log('connected from ' + address.address + ':' + address.port);
 
+  socket.on('line', function(data) {
+    console.log(data);
+    io.sockets.emit('line', data);
+  });
+
   socket.on('msg', function(data) {
     console.log(data);
     io.sockets.emit('msg', data);
