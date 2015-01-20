@@ -19,9 +19,9 @@ io.on('connection', function(socket) {
   var address = socket.handshake.address;
   console.log('connected from ' + address.address + ':' + address.port);
 
-  socket.on('line', function(data) {
+  socket.on('pos', function(data) {
     console.log(data);
-    io.sockets.emit('line', data);
+    io.sockets.emit('pos', data);
   });
 
   socket.on('msg', function(data) {
@@ -35,5 +35,5 @@ io.on('connection', function(socket) {
 });
 
 http.listen(3000, function() {
-  console.log('listening on localhost:3000');
+  console.log('listening on *:3000');
 });
