@@ -1,24 +1,33 @@
 
-var app = require('express')();
-var http = require('http').Server(app);
-var path = require('path');
-var port = process.env.PORT || 5000;
-var io = require('socket.io').listen(8080);
-var fs = require('fs');
 
+
+var express = require('express')
+, routes = require('./routes')
+, user = require('./routes/user')
+, http = require('http')
+, path = require('path');
+
+var app = express();
+
+app.set('port', process.env.PORT || 3000);
+app.get('/', function(req, res) {
+  res.send('Hello world');
+});
+
+var server = http.createServer(app);
+var socketio = require('socket.io');
+//var io = socketio.listen(server);
+var io = socketio.listen(8080);
+var fs = require('fs');
 
 var brackets = require('brackets');
 var bracketsOpts = {
   projectsDir: path.join(__dirname, '..'),
   supportDir:  path.join(__dirname, './support')
 };
-brackets(http, bracketsOpts);
+brackets(server, bracketsOpts);
 
-app.get('/', function(req, res) {
-  res.send('Hello world');
-});
-
-http.listen(port, function() {
+server.listen(app.get('port'), function() {
   console.log('listening on *:3000');
 });
 
@@ -52,11 +61,6 @@ io.sockets.on('connection', function (socket) {
 });
 
 
-io.configure(function () {
-  io.set("transports", ["xhr-polling"]);
-  io.set("polling duration", 10);
-});
-
 /*
 io.on('connection', function(socket) {
   var address = socket.handshake.address;
@@ -70,4 +74,11 @@ io.on('connection', function(socket) {
     console.log("disconnectted from " + address.address + ":" + address.port)
   });
 });
+
+
+io.configure(function () {
+  io.set("transports", ["xhr-polling"]);
+  io.set("polling duration", 10);
+});
+
 */
