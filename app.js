@@ -2,6 +2,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var path = require('path');
+var port = process.env.PORT || 5000;
 var io = require('socket.io').listen(8080);
 var fs = require('fs');
 
@@ -17,7 +18,7 @@ app.get('/', function(req, res) {
   res.send('Hello world');
 });
 
-http.listen(3000, function() {
+http.listen(port, function() {
   console.log('listening on *:3000');
 });
 
@@ -48,6 +49,12 @@ io.sockets.on('connection', function (socket) {
     console.log(pos);
     socket.broadcast.emit('cursor', pos);
   });
+});
+
+
+io.configure(function () {
+  io.set("transports", ["xhr-polling"]);
+  io.set("polling duration", 10);
 });
 
 /*
