@@ -62,6 +62,11 @@ io.sockets.on('connection', function (socket) {
 
 
 /*
+io.configure(function () {
+  io.set("transports", ["xhr-polling"]);
+  io.set("polling duration", 10);
+});
+
 io.on('connection', function(socket) {
   var address = socket.handshake.address;
   console.log('connected from ' + address.address + ':' + address.port);
@@ -73,12 +78,6 @@ io.on('connection', function(socket) {
   socket.on('disconnect', function () {
     console.log("disconnectted from " + address.address + ":" + address.port)
   });
-});
-
-
-io.configure(function () {
-  io.set("transports", ["xhr-polling"]);
-  io.set("polling duration", 10);
 });
 
 */
