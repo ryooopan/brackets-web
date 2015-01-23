@@ -1,3 +1,4 @@
 /node_modules
 /support/state.json
 /support/extensions/user/myapp/.git
+/myapp
