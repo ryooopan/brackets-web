@@ -8,7 +8,7 @@
     "projectPath": "/samples/root/Getting Started/",
     "afterFirstLaunch": "true",
     "workingSetSortMethod": "cmd.sortWorkingSetByAdded",
-    "lastInfoURLFetchTime": 1421884917166,
+    "lastInfoURLFetchTime": 1421971480014,
     "updateInfo": [
         {
             "buildNumber": 15558,
@@ -1087,7 +1087,7 @@
     ],
     "lastNotifiedBuildNumber": 15558,
     "extensionUpdateInfo": [],
-    "lastExtensionRegistryCheckTime": 1421884918466,
+    "lastExtensionRegistryCheckTime": 1421971484868,
     "project": {
         "/samples/root/Getting Started/": {
             "mainView.state": {
@@ -1103,12 +1103,12 @@
                                 "selections": [
                                     {
                                         "start": {
-                                            "line": 0,
-                                            "ch": 0
+                                            "line": 8,
+                                            "ch": 55
                                         },
                                         "end": {
-                                            "line": 0,
-                                            "ch": 0
+                                            "line": 8,
+                                            "ch": 55
                                         },
                                         "reversed": false,
                                         "primary": true

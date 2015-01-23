@@ -26,7 +26,7 @@ var bracketsOpts = {
 brackets(server, bracketsOpts);
 
 server.listen(app.get('port'), function() {
-  console.log('listening on *:3000');
+  console.log('listening on *:' + app.get('port'));
 });
 
 var socks = []
