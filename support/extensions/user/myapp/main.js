@@ -19,14 +19,14 @@ define(function (require, exports, module) {
   var InlineDocsViewer = require("InlineDocsViewer");
   var jsdiff = require('./lib/diff');
   var io = require("./lib/socket.io");
-  var socket = io.connect('http://localhost:8080');
+  var socket = io.connect('/');  // http://localhost:8080
   var inlineWidget = null;
   var node = null;
   var text = null;
   var document = null;
 
   console.log('MYAPP IS READY');
-  $('<style>.hoge { background: red; }</style>').appendTo('head')
+  $('<style>.hoge { background: red; } .fuga { background: red; }</style>').appendTo('head')
   $(EditorManager).on('activeEditorChange', _activeEditorChangeHandler);
 
   function _activeEditorChangeHandler($event, focusedEditor, lostEditor) {
@@ -55,6 +55,7 @@ define(function (require, exports, module) {
       
       cm.on('change', function(i, op) {
 	//console.log(op);
+	cm.addLineClass(op.from.line, 'background', 'fuga');
 	socket.emit('change', op);
 	socket.emit('refresh', cm.getValue());
       });      
